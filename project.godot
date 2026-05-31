@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 config/name="Taco Serve"
-config/version="2.0"
-config/description="A 3D horror game in Godot 4.3 where you serve tacos to humans and non-humans while surviving supernatural encounters. Enhanced with audio, graphics improvements, multiple customer types, difficulty levels, and leaderboard system."
+config/version="3.0"
+config/description="TACO SERVE 3.0 - Enhanced 3D horror game with quest system, achievements, sanity mechanics, dialogue, weapons, save system, and comprehensive analytics. Survive the ultimate night shift."
 run/main_scene="res://Scenes/UI/MainMenuScene.tscn"
 config/features=PackedStringArray("4.3", "3d")
 config/icon="res://icon.svg"
@@ -25,5 +25,4 @@ rendering/global_illumination/probe_subdivision=2
 rendering/environment/default_clear_color=Color(0.1, 0.1, 0.15, 1)
 
 [audio]
-
 bus_layouts/default="res://Audio/AudioBuses.tres"

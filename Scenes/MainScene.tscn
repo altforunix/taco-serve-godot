@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b1234567890abcdef"]
+[gd_scene load_steps=20 format=3 uid="uid://b1234567890abcdef"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd"]
 [ext_resource type="Script" path="res://Scripts/Player.gd"]
@@ -7,6 +7,14 @@
 [ext_resource type="Script" path="res://Scripts/DifficultyManager.gd"]
 [ext_resource type="Script" path="res://Scripts/CustomerManager.gd"]
 [ext_resource type="Script" path="res://Scripts/LeaderboardManager.gd"]
+[ext_resource type="Script" path="res://Scripts/Systems/QuestSystem.gd"]
+[ext_resource type="Script" path="res://Scripts/Systems/AchievementSystem.gd"]
+[ext_resource type="Script" path="res://Scripts/Systems/RecipeSystem.gd"]
+[ext_resource type="Script" path="res://Scripts/Systems/DialogueSystem.gd"]
+[ext_resource type="Script" path="res://Scripts/Systems/WeaponSystem.gd"]
+[ext_resource type="Script" path="res://Scripts/Systems/HorrorEffectsSystem.gd"]
+[ext_resource type="Script" path="res://Scripts/Systems/SaveSystem.gd"]
+[ext_resource type="Script" path="res://Scripts/Systems/AnalyticsSystem.gd"]
 [ext_resource type="PackedScene" uid="uid://c1111111111111111" path="res://Scenes/Components/Door.tscn"]
 [ext_resource type="PackedScene" uid="uid://c2222222222222222" path="res://Scenes/Components/Counter.tscn"]
 [ext_resource type="PackedScene" uid="uid://c3333333333333333" path="res://Scenes/Components/PrepTable.tscn"]
@@ -50,6 +58,30 @@ add_to_group("customers")
 
 [node name="LeaderboardManager" type="Node" parent="."]
 script = ExtResource("LeaderboardManager.gd")
+
+[node name="QuestSystem" type="Node" parent="."]
+script = ExtResource("QuestSystem.gd")
+
+[node name="AchievementSystem" type="Node" parent="."]
+script = ExtResource("AchievementSystem.gd")
+
+[node name="RecipeSystem" type="Node" parent="."]
+script = ExtResource("RecipeSystem.gd")
+
+[node name="DialogueSystem" type="Node" parent="."]
+script = ExtResource("DialogueSystem.gd")
+
+[node name="WeaponSystem" type="Node" parent="."]
+script = ExtResource("WeaponSystem.gd")
+
+[node name="HorrorEffectsSystem" type="Node" parent="."]
+script = ExtResource("HorrorEffectsSystem.gd")
+
+[node name="SaveSystem" type="Node" parent="."]
+script = ExtResource("SaveSystem.gd")
+
+[node name="AnalyticsSystem" type="Node" parent="."]
+script = ExtResource("AnalyticsSystem.gd")
 
 [node name="Environment" type="Node3D" parent="."]
 
@@ -137,6 +169,21 @@ anchor_bottom = 0.25
 text = "Score: 0"
 theme_override_font_sizes/font_size = 18
 
+[node name="SanityLabel" type="Label" parent="HUD/Control"]
+anchor_left = 0.02
+anchor_top = 0.28
+anchor_right = 0.15
+anchor_bottom = 0.35
+text = "Sanity: 100%"
+theme_override_font_sizes/font_size = 18
+
+[node name="SanityBar" type="ProgressBar" parent="HUD/Control"]
+anchor_left = 0.02
+anchor_top = 0.36
+anchor_right = 0.15
+anchor_bottom = 0.4
+value = 100.0
+
 [node name="TimerLabel" type="Label" parent="HUD/Control"]
 anchor_left = 0.35
 anchor_top = 0.05
@@ -155,6 +202,15 @@ text = "Difficulty: NORMAL"
 theme_override_font_sizes/font_size = 16
 alignment = 2
 
+[node name="QuestLabel" type="Label" parent="HUD/Control"]
+anchor_left = 0.75
+anchor_top = 0.15
+anchor_right = 0.98
+anchor_bottom = 0.35
+text = "Quests: None"
+theme_override_font_sizes/font_size = 14
+alignment = 2
+
 [node name="InteractLabel" type="Label" parent="HUD/Control"]
 anchor_left = 0.35
 anchor_top = 0.45
@@ -165,11 +221,22 @@ theme_override_font_sizes/font_size = 20
 alignment = 1
 visible = false
 
+[node name="DialogueBox" type="PanelContainer" parent="HUD/Control"]
+anchor_left = 0.1
+anchor_top = 0.75
+anchor_right = 0.9
+anchor_bottom = 0.98
+visible = false
+
+[node name="DialogueText" type="Label" parent="HUD/Control/DialogueBox"]
+text = "Character: Dialogue text here"
+theme_override_font_sizes/font_size = 18
+wrap_text = true
+
 [node name="BlackScreen" type="ColorRect" parent="HUD/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(0, 0, 0, 1)
 visible = false
 
-[connection signal="game_over" from="GameManager" to="HUD" method="_on_game_over"]
-[connection signal="victory" from="GameManager" to="HUD" method="_on_victory"]
+[connection signal="sanity_changed" from="HorrorEffectsSystem" to="HUD" method="_on_sanity_changed"]
