@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://leaderboard001"]
+
+[ext_resource type="Script" path="res://Scripts/UI/LeaderboardScene.gd"]
+
+[node name="LeaderboardScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("Scripts/UI/LeaderboardScene.gd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.1, 0.1, 0.15, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+text = "LEADERBOARD - TOP 10 SCORES"
+theme_override_font_sizes/font_size = 40
+alignment = 1
+
+[node name="LeaderboardList" type="ItemList" parent="VBoxContainer"]
+size_flags_vertical = 3
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+text = "Back to Menu"
+theme_override_font_sizes/font_size = 20

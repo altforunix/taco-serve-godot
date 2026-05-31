@@ -17,10 +17,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150
-offset_top = -100
-offset_right = 150
-offset_bottom = 100
+offset_left = -200
+offset_top = -150
+offset_right = 200
+offset_bottom = 150
 alignment = 1
 
 [node name="Title" type="Label" parent="VBoxContainer"]
@@ -33,7 +33,17 @@ text = "You died."
 theme_override_font_sizes/font_size = 32
 alignment = 1
 
+[node name="ScoreLabel" type="Label" parent="VBoxContainer"]
+text = "Score: 0"
+theme_override_font_sizes/font_size = 24
+alignment = 1
+
 [node name="RestartButton" type="Button" parent="VBoxContainer"]
-text = "Restart"
+text = "Retry"
+theme_override_font_sizes/font_size = 24
+size_flags_vertical = 4
+
+[node name="MenuButton" type="Button" parent="VBoxContainer"]
+text = "Main Menu"
 theme_override_font_sizes/font_size = 24
 size_flags_vertical = 4

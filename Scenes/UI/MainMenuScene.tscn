@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://mainmenu001"]
+
+[ext_resource type="Script" path="res://Scripts/UI/MainMenuScene.gd"]
+
+[node name="MainMenuScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("Scripts/UI/MainMenuScene.gd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.05, 0.05, 0.1, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200
+offset_top = -200
+offset_right = 200
+offset_bottom = 200
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+text = "TACO SERVE"
+theme_override_font_sizes/font_size = 72
+alignment = 1
+
+[node name="Subtitle" type="Label" parent="VBoxContainer"]
+text = "A 3D Horror Experience"
+theme_override_font_sizes/font_size = 24
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+text = "PLAY"
+theme_override_font_sizes/font_size = 28
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer"]
+text = "SETTINGS"
+theme_override_font_sizes/font_size = 24
+
+[node name="LeaderboardButton" type="Button" parent="VBoxContainer"]
+text = "LEADERBOARD"
+theme_override_font_sizes/font_size = 24
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+text = "QUIT"
+theme_override_font_sizes/font_size = 24

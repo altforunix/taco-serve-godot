@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://difficulty001"]
+
+[ext_resource type="Script" path="res://Scripts/UI/DifficultySelectScene.gd"]
+
+[node name="DifficultySelectScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("Scripts/UI/DifficultySelectScene.gd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.1, 0.1, 0.15, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200
+offset_top = -250
+offset_right = 200
+offset_bottom = 250
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+text = "SELECT DIFFICULTY"
+theme_override_font_sizes/font_size = 48
+alignment = 1
+
+[node name="EasyButton" type="Button" parent="VBoxContainer"]
+text = "EASY - More ingredients, slower time"
+theme_override_font_sizes/font_size = 20
+
+[node name="NormalButton" type="Button" parent="VBoxContainer"]
+text = "NORMAL - Balanced experience"
+theme_override_font_sizes/font_size = 20
+
+[node name="HardButton" type="Button" parent="VBoxContainer"]
+text = "HARD - More entities, faster time"
+theme_override_font_sizes/font_size = 20
+
+[node name="NightmareButton" type="Button" parent="VBoxContainer"]
+text = "NIGHTMARE - Survive if you can"
+theme_override_font_sizes/font_size = 20
+
+[node name="LeaderboardButton" type="Button" parent="VBoxContainer"]
+text = "VIEW LEADERBOARD"
+theme_override_font_sizes/font_size = 18

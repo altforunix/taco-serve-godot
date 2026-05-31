@@ -10,22 +10,22 @@ script = ExtResource("Scripts/UI/VictoryScene.gd")
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color(0, 0, 0, 0.8)
+color = Color(0.1, 0.1, 0.2, 0.9)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200
-offset_top = -150
-offset_right = 200
-offset_bottom = 150
+offset_left = -250
+offset_top = -200
+offset_right = 250
+offset_bottom = 200
 alignment = 1
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 text = "VICTORY!"
-theme_override_font_sizes/font_size = 72
+theme_override_font_sizes/font_size = 80
 alignment = 1
 
 [node name="Message" type="Label" parent="VBoxContainer"]
@@ -33,12 +33,20 @@ text = "You survived until 6 AM!"
 theme_override_font_sizes/font_size = 32
 alignment = 1
 
-[node name="Stats" type="Label" parent="VBoxContainer"]
-text = "Well done, brave taco server."
+[node name="ScoreLabel" type="Label" parent="VBoxContainer"]
+text = "Final Score: 0"
+theme_override_font_sizes/font_size = 28
+alignment = 1
+
+[node name="RankLabel" type="Label" parent="VBoxContainer"]
+text = "Rank: Calculating..."
 theme_override_font_sizes/font_size = 24
 alignment = 1
 
-[node name="ExitButton" type="Button" parent="VBoxContainer"]
-text = "Exit"
+[node name="ContinueButton" type="Button" parent="VBoxContainer"]
+text = "Continue"
 theme_override_font_sizes/font_size = 24
-size_flags_vertical = 4
+
+[node name="MenuButton" type="Button" parent="VBoxContainer"]
+text = "Main Menu"
+theme_override_font_sizes/font_size = 24
