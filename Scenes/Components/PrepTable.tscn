@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3333333333333333"]
+
+[ext_resource type="Script" path="res://Scripts/Components/PrepTable.gd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_klmno"]
+size = Vector3(3, 0.8, 2)
+
+[node name="PrepTable" type="StaticBody3D"]
+script = ExtResource("Scripts/Components/PrepTable.gd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_pqrst")
+scale = Vector3(3, 0.8, 2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_klmno")
+
+[sub_resource type="BoxMesh" id="BoxMesh_pqrst"]
+size = Vector3(3, 0.8, 2)

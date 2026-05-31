@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1111111111111111"]
+
+[ext_resource type="Script" path="res://Scripts/Components/Door.gd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_door"]
+size = Vector3(1, 2, 0.1)
+
+[node name="Door" type="StaticBody3D"]
+script = ExtResource("Scripts/Components/Door.gd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_door")
+scale = Vector3(1, 2, 0.1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_door")
+
+[sub_resource type="BoxMesh" id="BoxMesh_door"]
+size = Vector3(1, 2, 0.1)

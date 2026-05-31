@@ -1,0 +1,25 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   option = value ; assign values to options
+
+config_version=5
+
+[application]
+config/name="Taco Serve"
+config/version="1.0"
+config/description="A 3D horror game in Godot 4.3 where you serve tacos to humans and non-humans while surviving supernatural encounters."
+run/main_scene="res://Scenes/MainScene.tscn"
+config/features=PackedStringArray("4.3", "3d")
+config/icon="res://icon.svg"
+
+[physics]
+3d/physics_engine="GodotPhysics3D"
+
+[rendering]
+rendering/textures/canvas_textures/default_texture_filter=0
+rendering/global_illumination/probe_subdivision=2
+rendering/environment/default_clear_color=Color(0.1, 0.1, 0.15, 1)

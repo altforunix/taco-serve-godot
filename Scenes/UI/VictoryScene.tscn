@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://victory001"]
+
+[ext_resource type="Script" path="res://Scripts/UI/VictoryScene.gd"]
+
+[node name="VictoryScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("Scripts/UI/VictoryScene.gd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.8)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200
+offset_top = -150
+offset_right = 200
+offset_bottom = 150
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+text = "VICTORY!"
+theme_override_font_sizes/font_size = 72
+alignment = 1
+
+[node name="Message" type="Label" parent="VBoxContainer"]
+text = "You survived until 6 AM!"
+theme_override_font_sizes/font_size = 32
+alignment = 1
+
+[node name="Stats" type="Label" parent="VBoxContainer"]
+text = "Well done, brave taco server."
+theme_override_font_sizes/font_size = 24
+alignment = 1
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+text = "Exit"
+theme_override_font_sizes/font_size = 24
+size_flags_vertical = 4

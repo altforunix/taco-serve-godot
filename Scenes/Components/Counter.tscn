@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2222222222222222"]
+
+[ext_resource type="Script" path="res://Scripts/Components/Counter.gd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_abcde"]
+size = Vector3(4, 1, 1)
+
+[node name="Counter" type="StaticBody3D"]
+script = ExtResource("Scripts/Components/Counter.gd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh")
+scale = Vector3(4, 1, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_abcde")
+
+[sub_resource type="BoxMesh" id="BoxMesh_fghij"]]
+size = Vector3(4, 1, 1)

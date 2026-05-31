@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://shell001"]
+
+[ext_resource type="Script" path="res://Scripts/Ingredients/IngredShell.gd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_shell"]
+size = Vector3(0.3, 0.05, 0.2)
+
+[node name="IngredShell" type="Node3D"]
+script = ExtResource("Scripts/Ingredients/IngredShell.gd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_shell")
+scale = Vector3(0.3, 0.05, 0.2)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_shell")
+
+[sub_resource type="BoxMesh" id="BoxMesh_shell"]
+size = Vector3(0.3, 0.05, 0.2)

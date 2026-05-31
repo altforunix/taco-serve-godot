@@ -1,0 +1,134 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1234567890abcdef"]
+
+[ext_resource type="Script" path="res://Scripts/GameManager.gd"]
+[ext_resource type="Script" path="res://Scripts/Player.gd"]
+[ext_resource type="Script" path="res://Scripts/HUD.gd"]
+[ext_resource type="PackedScene" uid="uid://c1111111111111111" path="res://Scenes/Components/Door.tscn"]
+[ext_resource type="PackedScene" uid="uid://c2222222222222222" path="res://Scenes/Components/Counter.tscn"]
+[ext_resource type="PackedScene" uid="uid://c3333333333333333" path="res://Scenes/Components/PrepTable.tscn"]
+[ext_resource type="PackedScene" uid="uid://c4444444444444444" path="res://Scenes/Components/SodaMachine.tscn"]
+
+[node name="MainScene" type="Node3D"]
+script = SubResource("GDScript")
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("GameManager.gd")
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment")
+
+[node name="AmbientLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 5, 0)
+energy_multiplier = 0.3
+
+[node name="Floor" type="CSGBox3D" parent="Environment"]
+transform = Transform3D(20, 1, 20, 0, 1, 0, 0, 0, 20, 0, -1, 0)
+material_override = SubResource("StandardMaterial3D")
+
+[node name="Walls" type="Node3D" parent="Environment"]
+
+[node name="WallFront" type="CSGBox3D" parent="Environment/Walls"]
+transform = Transform3D(20, 10, 1, 0, 1, 0, 0, 0, 1, 0, 5, -10)
+material_override = SubResource("StandardMaterial3D")
+
+[node name="WallBack" type="CSGBox3D" parent="Environment/Walls"]
+transform = Transform3D(20, 10, 1, 0, 1, 0, 0, 0, 1, 0, 5, 10)
+material_override = SubResource("StandardMaterial3D")
+
+[node name="WallLeft" type="CSGBox3D" parent="Environment/Walls"]
+transform = Transform3D(1, 10, 20, 0, 1, 0, 0, 0, 20, -10, 5, 0)
+material_override = SubResource("StandardMaterial3D")
+
+[node name="WallRight" type="CSGBox3D" parent="Environment/Walls"]
+transform = Transform3D(1, 10, 20, 0, 1, 0, 0, 0, 20, 10, 5, 0)
+material_override = SubResource("StandardMaterial3D")
+
+[node name="Furniture" type="Node3D" parent="Environment"]
+
+[node name="Counter" parent="Environment/Furniture" instance=ExtResource("Counter.tscn")]
+transform = Transform3D(1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="PrepTable" parent="Environment/Furniture" instance=ExtResource("PrepTable.tscn")]
+transform = Transform3D(1, 1, 1, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="SodaMachine" parent="Environment/Furniture" instance=ExtResource("SodaMachine.tscn")]
+transform = Transform3D(1, 1, 1, 0, 1, 0, 0, 0, 1, 5, 0, -8)
+
+[node name="Doors" type="Node3D" parent="Environment"]
+
+[node name="BackDoor" parent="Environment/Doors" instance=ExtResource("Door.tscn")]
+transform = Transform3D(1, 1, 1, 0, 1, 0, 0, 0, 1, -9, 0, 10)
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("Player.gd")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Player/Camera3D"]
+target_position = Vector3(0, 0, -3)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("HUD.gd")
+
+[node name="Control" type="Control" parent="HUD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="InventoryLabel" type="Label" parent="HUD/Control"]
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.35
+anchor_bottom = 0.25
+text = "Inventory: None"
+theme_override_font_sizes/font_size = 24
+
+[node name="TimerLabel" type="Label" parent="HUD/Control"]
+anchor_left = 0.4
+anchor_top = 0.05
+anchor_right = 0.6
+anchor_bottom = 0.15
+text = "Time: 12:00 AM"
+theme_override_font_sizes/font_size = 28
+alignment = 1
+
+[node name="InteractLabel" type="Label" parent="HUD/Control"]
+anchor_left = 0.35
+anchor_top = 0.45
+anchor_right = 0.65
+anchor_bottom = 0.55
+text = "Press E to Interact"
+theme_override_font_sizes/font_size = 20
+alignment = 1
+visible = false
+
+[node name="BlackScreen" type="ColorRect" parent="HUD/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 1)
+visible = false
+
+[subresource type="Environment" index="0"]
+ambient_light_source = 2
+ambient_light_energy = 0.5
+ambient_light_energy_source = 2
+tone_mapper = 2
+
+[subresource type="StandardMaterial3D" index="1"]
+albedo_color = Color(0.8, 0.7, 0.6, 1)
+
+[subresource type="StandardMaterial3D" index="2"]
+albedo_color = Color(0.6, 0.5, 0.4, 1)
+
+[subresource type="StandardMaterial3D" index="3"]
+albedo_color = Color(0.6, 0.5, 0.4, 1)
+
+[subresource type="StandardMaterial3D" index="4"]
+albedo_color = Color(0.6, 0.5, 0.4, 1)
